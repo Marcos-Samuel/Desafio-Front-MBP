@@ -71,6 +71,7 @@ const Home: React.FC = () => {
   useEffect(() => {
       listResults();
       setForceRender(false);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [forceRender]);
 
   const order = ['Biologia', 'Artes', 'Geografia', 'Sociologia'];
