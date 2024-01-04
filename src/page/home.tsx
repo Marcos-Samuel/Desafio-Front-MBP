@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "../components/card/card"; 
 import { Container, ContainerCard, ContainerControl } from "./styles";
 import Controls from "../components/controls/controls"; 
 import api from "../services/data"; 
-import { Bimestre, EventProps, Resultados } from '../interface/types'
+import { Bimestre, Resultados } from '../interface/types'
 import ModalRegisterDiciplina from "../components/modalRegisterDiscipline/modalRegisterDiscipline";
 import { Button } from "../components/button/button";
 import { useForm } from "react-hook-form";
@@ -91,7 +91,7 @@ const dadosQuartoBimestre = results.quarto
   .filter((bimestre) => order.includes(bimestre.disciplina))
   .sort((a, b) => order.indexOf(a.disciplina) - order.indexOf(b.disciplina));
 
-  const handleSelectDiciplina = (e: EventProps) => {
+  const handleSelectDiciplina = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     const item = e.target.value;
     const isAlreadySelected = selectedDiciplina.includes(item);

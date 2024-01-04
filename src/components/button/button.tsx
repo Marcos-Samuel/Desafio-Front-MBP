@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import { Container, ContainerButton } from "./styles";
 import plus from '../../assets/plus.svg'
-import { EventProps } from "../../interface/types";
+
 interface Props {
   icon?: ReactElement;
-  onClick?: (() => void) | ((arg: string) => void) | ((e: EventProps) => void) | any;
+  onClick?: (() => void) | ((arg: string) => void) | ((e: React.ChangeEvent<HTMLInputElement>) => void) | any;
   title?: string;
   type?: "button" | "submit" 
   variant?: "primary" | "BiologiaColor" | "ArtesColor" | "GeografiaColor" | "SociologiaColor" | 'modalPrimary';
