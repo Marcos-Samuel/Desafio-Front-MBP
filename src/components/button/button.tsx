@@ -1,51 +1,57 @@
-import { ReactElement, useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ReactElement, useEffect, useState } from "react";
 import { Container, ContainerButton } from "./styles";
-
+import plus from '../../assets/plus.svg'
+import { EventProps } from "../../interface/types";
 interface Props {
-  disabled?: boolean;
   icon?: ReactElement;
-  onClick?: () => void;
-  title: string;
-  type?: "button" | "submit" | "reset";
-  variant?: "primary" | "pinkModal" | "blueModal" | "orangeModal" | "purpleModal";
-  freeSize?: boolean;
-  isLoading?: boolean;
-  shadow?: boolean;
+  onClick?: (() => void) | ((arg: string) => void) | ((e: EventProps) => void) | any;
+  title?: string;
+  type?: "button" | "submit" 
+  variant?: "primary" | "BiologiaColor" | "ArtesColor" | "GeografiaColor" | "SociologiaColor" | 'modalPrimary';
+  width?: string | undefined
+  height?: string | undefined;
+  value?: string
 }
 
 export function Button({
-  disabled = false,
   onClick,
   title,
   type = "button",
   variant = "primary",
-  freeSize = false,
-
-  shadow = false,
+  width,
+  height,
+  value
 }: Props) {
 
-  const [focused, setFocused] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <Container
       variant={variant}
-      freeSize={freeSize}
-      shadow={shadow}
+      width={width}
+      height={height}
     >
       <ContainerButton
-        focused={focused}
-        freeSize={freeSize}
-        shadow={shadow}
         variant={variant}
-        onFocus={()=> setFocused(true)}
-        onBlur={()=> setFocused(false)}
-        className={disabled ? "disabled" : "button"}
-        disabled={disabled}
         onClick={onClick}
         type={type}
+        value={value}
       >
-
-        {title}
+        {title === 'Lançar Nota'  && isMobile ? '' : title} 
+        {title === 'Lançar Nota'  && <img src={plus} alt="" />}
       </ContainerButton>
     </Container>
   );
