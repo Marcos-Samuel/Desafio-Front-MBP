@@ -22,8 +22,6 @@
 <br>
 
 
-
-
 ## 🚀 Tecnologias Utilizadas
 
 > Abaixo estão as 8 tecnologias utilizadas no desenvolvimento do projeto, e o motivo de usá-las.
@@ -157,7 +155,7 @@
 
 ## 📝 DEPLOY 
 
-
+https://desafio-front-mbp-hppm-eci413387-marcos-samuel.vercel.app
 
 
 ## 📝 Sobre
