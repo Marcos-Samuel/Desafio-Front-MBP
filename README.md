@@ -155,7 +155,7 @@
 
 ## 📝 DEPLOY 
 
-<a href="https://desafio-front-mbp-hppm-eci413387-marcos-samuel.vercel.app"> Desafio Front-end </a>
+<a href="https://desafio-front-mbp-hppm-eci413387-marcos-samuel.vercel.app" target="_blank" > Desafio Front-end </a>
 
 
 ## 📝 Sobre
